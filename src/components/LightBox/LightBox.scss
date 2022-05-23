@@ -1,0 +1,28 @@
+@import "../../sass/variables.scss";
+
+.lightBox {
+  &__container {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: $principalContainerColor;
+  }
+
+  &__close__btn {
+    font-size: 25px;
+    display: absolute;
+    color: $backgroundColor;
+    top: 20px;
+    right: 20px;
+  }
+
+  &__text {
+    font-size: 24px;
+    color: $backgroundColor;
+  }
+}

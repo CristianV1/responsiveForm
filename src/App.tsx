@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.scss";
+import Navbar from "./components/Navbar/Navbar";
+import flights from "./data/flights.json";
+import Form from "./components/Form/Form";
+import LightBox from "./components/LightBox/LightBox";
+import { useSelector } from "react-redux";
 
 function App() {
+  let isLightBox = useSelector((state: any) => state.openLightBox);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar data={flights} />
+      <Form />
+      {isLightBox ? (
+        <LightBox
+          message="Tu información fue enviada con éxito, estaremos en contacto 
+contigo"
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

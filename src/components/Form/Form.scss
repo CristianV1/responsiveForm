@@ -1,0 +1,110 @@
+@import "../../sass/variables.scss";
+
+.form {
+  &__container {
+    position: absolute;
+    width: 500px;
+    top: 50%;
+    padding: 20px 50px;
+    background-color: $principalContainerColor;
+    right: 50%;
+    transform: translate(50%, -50%);
+    box-shadow: 6px 6px 1px #320b70;
+  }
+  &__welcome__text {
+    display: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: $subTitle;
+
+    span {
+      font-size: 19px;
+      font-weight: bold;
+      color: $title;
+    }
+  }
+
+  &__input {
+    background: none;
+    width: 100%;
+    padding: 10px 5px;
+    border: 2px solid $offInputColor;
+    transition: 0.5s;
+    &:hover {
+      border-color: $hoverInputColor;
+    }
+
+    &:focus {
+      border-color: $backgroundColor;
+    }
+
+    &:focus ~ .form__label,
+    &:not(:placeholder-shown).form__input:not(:focus) ~ .form__label {
+      top: -0.5rem;
+      font-size: 0.8rem;
+      left: 0.8rem;
+      font-weight: bold;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 1rem;
+    cursor: text;
+    top: 0.6rem;
+    background-color: $principalContainerColor;
+    padding: 0 0.5rem;
+    transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in,
+      font-weight 200ms ease-in;
+  }
+
+  &__data__container {
+    padding: 5px 0;
+    &__div {
+      margin-bottom: 30px;
+      margin-top: 5px;
+      position: relative;
+    }
+  }
+
+  &__submit {
+    width: 200px;
+    padding: 8px 40px;
+    font-size: 20px;
+    font-weight: bold;
+
+    color: $principalContainerColor;
+    background-color: $pinkStuff;
+    transition: 0.2s;
+    &:hover {
+      transform: scale(1.11);
+    }
+
+    &__container {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    bottom: -25px;
+    color: rgb(214, 1, 1);
+    font-size: 15px;
+  }
+}
+
+.appear {
+  display: block;
+}
+
+@media (max-width: 550px) {
+  .form {
+    &__container {
+      width: 90%;
+      top: 55%;
+
+      padding: 10px 20px;
+    }
+  }
+}
